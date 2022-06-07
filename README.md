@@ -67,6 +67,37 @@ def user(name):
 (venv) $ flask run
 ```
 
+## Rendering Templates
+
+- Flask looks for templates in a ```templates``` subdirectory located inside the main application directory.
+
+```python3
+from flask import render_template
+```
+
+```python3
+@app.route('/user/name')
+def user(name):
+    return render_template('user.html', name=name)
+```
+
+- The function ```render_template()``` integrates Jinja2 template engine with the app. 
+
+
+## Flask-Bootstrap
+
+```bash
+(venv) $ pip install flask-bootstrap
+```
+
+```hello.py```
+```python3
+from flask_bootstrap import Bootstrap
+# ...
+bootstrap = Bootstrap(app)
+```
+
+
 # Notes
 
 ### virtual environment -- a copy of the Python interpreter into which you can install packages privately; they prevent package clutter and version conflicts.  Creating a virtual environment for each project ensures that applications have access only to the packages that they use, while the global interpreter remains neat and clean and serves only as a source from which more virtual environments can be created.
@@ -96,4 +127,11 @@ def index():
 
 ### Code 404 -- error message for a web page that does not exist
 
+### template -- a file that contains the text of a response, with placeholder variables or the dynamic parts that will be known only in the context of a request
+
+### rendering -- the process that replaces the variables with actual values and returns a final response 
+
+### Flask uses Jinja2 for the task of rendering templates
+
+### render_template() -- the first argument is the filename of the template; any additional arguments are key-value pairs that represent actual values for variables referenced in the template
 
