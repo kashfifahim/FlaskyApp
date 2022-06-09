@@ -153,4 +153,16 @@ def index():
 
 ### CSFR -- cross-site request forgery attack occurs when a malicious website sends requests to the app server on which the user is currently logged in
 
-### each Flask-WTF web form is represented in the server by a class that inherits from the class FlaskForm.  
+### each Flask-WTF web form is represented in the server by a class that inherits from the class FlaskForm. The class defines the list of fields in the form, each represented by an object.  Each field object can have one or more ```validators``` attached.
+
+### Validator -- a function that checks whether the data submitted by the user is valid.
+
+### Redirect -- a special type of response that contains a URL instead of a string with HTML code.  When a browser receives a redirect response, it issues a GET request for the redirect URL, and that is the page that it displays.
+
+### Post/Redirect/Get pattern
+
+### user session -- a private storage that is available to each connected client; apps can remember things from one request to the next by storing them in the user session
+
+### redirect() function takes the URL to redirect to as an argument
+
+### url_for() 
