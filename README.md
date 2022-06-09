@@ -97,6 +97,18 @@ from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 ```
 
+## Flask-WTF
+
+```bash
+(venv) $ pip install flask-wtf
+```
+
+Flask-WTF does not need to be initialized but it expects the application to have a ```secret``` key configured.
+
+```python3
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
+```
 
 # Notes
 
@@ -135,3 +147,10 @@ def index():
 
 ### render_template() -- the first argument is the filename of the template; any additional arguments are key-value pairs that represent actual values for variables referenced in the template
 
+### web forms -- in which users can enter information; the form data is then submitted by the web browser to the server, typically in the form of a POST request.
+
+### app.config dictionary -- a general-purpose place to stroe configuration variables used by Flask, extensions, or the app itself.
+
+### CSFR -- cross-site request forgery attack occurs when a malicious website sends requests to the app server on which the user is currently logged in
+
+### each Flask-WTF web form is represented in the server by a class that inherits from the class FlaskForm.  
