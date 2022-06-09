@@ -166,3 +166,6 @@ def index():
 ### redirect() function takes the URL to redirect to as an argument
 
 ### url_for() 
+
+### message flashing -- give the user a status update after a request is completed
+

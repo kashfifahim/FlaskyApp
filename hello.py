@@ -15,6 +15,9 @@ from wtforms.validators import DataRequired
 # For session, redirect
 from flask import session, redirect, url_for
 
+# For message flashing
+from flask import flash
+
 app = Flask(__name__)
 # the secret key will be stored in an environment variable later
 # keeping it simple for learning purposes
@@ -27,9 +30,12 @@ def index():
     # name = None
     form = NameForm()
     if form.validate_on_submit():
+        old_name = session.get('name')
+        if old_name is not None and old_name != form.name.data:
+            flash('Looks like you have changed your name!')
         session['name'] = form.name.data
         return redirect(url_for('index'))
-    return render_template('index.html', form=form, name=session.get('name'))
+    return render_template('index.html', form = form, name = session.get('name'))
 
 @app.route('/user/<name>')
 def user(name):
